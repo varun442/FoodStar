@@ -8,6 +8,7 @@ import store from "../Utils/store";
 const Title = () => (
   <a href="/">
     <img
+      data-testid="logo"
       className="logo"
       src={FoodFireLogo}
       alt="Food Fire Logo"
@@ -43,8 +44,9 @@ const Header = () => {
             <Link to="/instamart">Instamart</Link>
           </li>
           <li>
-            <Link to="/cart">Cart - {itemCount.length}</Link>
+            <Link to="/cart" data-testid="cart-status">Cart - {itemCount.length}</Link>
           </li>
+          <h1 data-testid="online-status">Yes, Online!!</h1>
           <li>
             {/* use conditional rendering for login and logout */}
             {isLoggedin ? (
