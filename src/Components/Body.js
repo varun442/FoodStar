@@ -26,11 +26,14 @@ const Body = () => {
     try {
       const data = await fetch(swiggy_api_URL);
       const json = await data.json();
+      console.log(json);
       // updated state variable restaurants with Swiggy API data
       setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
       setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+      console.log(allRestaurants);
+      console.log(filteredRestaurants);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -51,13 +54,13 @@ const Body = () => {
     }
   };
 
-  const isOnline = useOnline();
-  if (!isOnline) {
-    return <h1>Please check your connection</h1>;
-  }
+  // const isOnline = useOnline();
+  // if (!isOnline) {
+  //   return <h1>Please check your connection</h1>;
+  // }
   // if allRestaurants is empty don't render restaurants cards
   if (!allRestaurants) return null;
-
+  console.log(allRestaurants);
   return (
     <>
       <div className="search-container">

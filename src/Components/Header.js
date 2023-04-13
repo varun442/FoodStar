@@ -2,13 +2,14 @@ import { useState } from "react";
 import FoodFireLogo from "../Images/Food Fire Logo.png";
 import { Link } from "react-router-dom"; // imported Link for client side routing
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import store from "../Utils/store";
 // Title component for display logo
 const Title = () => (
   <a href="/">
     <img
       className="logo"
-      src="https://prtrproxseaprod.blob.core.windows.net/company-logo/378159/965c6a1f-14ab-469d-97a1-1024aa17810f.jpg"
+      src={FoodFireLogo}
       alt="Food Fire Logo"
       title="Food Fire Logo"
     />
@@ -20,6 +21,8 @@ const Header = () => {
   // use useState for user logged in or logged out
   const [isLoggedin, setIsLoggedin] = useState(true);
   const navigate = useNavigate();
+  const itemCount = useSelector((store) => store.cart.items);
+  console.log(itemCount);
   return (
     <div className="header">
       <Title />
@@ -40,7 +43,7 @@ const Header = () => {
             <Link to="/instamart">Instamart</Link>
           </li>
           <li>
-            <i className="fa-solid fa-cart-shopping"></i>
+            <Link to="/cart">Cart - {itemCount.length}</Link>
           </li>
           <li>
             {/* use conditional rendering for login and logout */}

@@ -8,12 +8,19 @@ export const ITEM_IMG_CDN_URL =
 
 // Swiggy API to get Restaurant data with corsanywhere
 export const swiggy_api_URL =
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.9752485&lng=79.59984709999999&page_type=DESKTOP_WEB_LISTING";
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.9913513&lng=79.6305599&page_type=DESKTOP_WEB_LISTING";
+
 // Swiggy API to get Restaurant Menu data with corsanywhere
 export const swiggy_menu_api_URL =
-  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.9752485&lng=79.59984709999999&restaurantId=";
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.9913513&lng=79.6305599&restaurantId=";
+
 // shimmer card unit
 export const shimmer_card_unit = 8;
 
 // shimmer Menu card unit
 export const shimmer_menu_card_unit = 4;
+
+
+// menu items api card type key
+export const MENU_ITEM_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
+export const RESTAURANT_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.Restaurant";

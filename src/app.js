@@ -14,6 +14,9 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 import Profile from "./Components/Profile";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
 import Instamart from "./Components/Instamart";
+import store from "./Utils/store";
+import { Provider } from "react-redux";
+import Cart from "./Components/Cart";
 
 /* My Food App structure will look like this, 
             1) Header
@@ -38,11 +41,13 @@ const Instamart = lazy(() => import("./Components/Instamart"));
 // AppLayout component to render: Header, Outlet(it contain children component like body, About, Restaurant Menu etc) and Footer Component
 const AppLayout = () => {
   return (
-    <React.Fragment>
-      <Header />
-      <Outlet />
-      <Footer />
-    </React.Fragment>
+    <Provider store={store}>
+      <>
+        <Header />
+        <Outlet />
+        <Footer />
+      </>
+    </Provider>
   );
 };
 
@@ -80,9 +85,13 @@ const appRouter = createBrowserRouter([
         path: "/instamart",
         element: (
           // <Suspense fallback={<Shimmer />}>
-            <Instamart />
+          <Instamart />
           // </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
